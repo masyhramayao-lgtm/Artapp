@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <script>
+      try {
+        var savedScheme = localStorage.getItem('color-scheme');
+        if (savedScheme === 'dark' || savedScheme === 'light') {
+          document.querySelector('meta[name="color-scheme"]').content = savedScheme;
+        }
+      } catch (e) {}
+    </script>
+    <title>Artistic Journey: My Art Appreciation Website Portfolio</title>
+    <meta
+      name="description"
+      content="A personal Art Appreciation portfolio sharing what I learned, the Western and Asian artworks I studied, and my own reflections on art."
+    />
+    <meta name="author" content="Ma. Syhra Dl. Mayao" />
+    <meta name="theme-color" content="#782B32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Artistic Journey" />
+    <meta property="og:title" content="Artistic Journey: My Art Appreciation Website Portfolio" />
+    <meta
+      property="og:description"
+      content="A personal Art Appreciation portfolio sharing what I learned, the Western and Asian artworks I studied, and my own reflections on art."
+    />
+    <meta property="og:image" content="/images/school-of-athens.jpg" />
+    <meta property="og:image:width" content="960" />
+    <meta property="og:image:height" content="745" />
+    <meta property="og:image:alt" content="The School of Athens by Raphael" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Artistic Journey: My Art Appreciation Website Portfolio" />
+    <meta
+      name="twitter:description"
+      content="A personal Art Appreciation portfolio sharing what I learned, the Western and Asian artworks I studied, and my own reflections on art."
+    />
+    <meta name="twitter:image" content="/images/school-of-athens.jpg" />
+    <link rel="preload" as="image" href="/images/school-of-athens.jpg" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Anton&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

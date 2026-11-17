@@ -1,0 +1,1747 @@
+/* Hallmark · v2.0.0 · genre: editorial · theme: custom (by request: the user's three reference images) · redesign: full · hero: Settled (wordmark over a four-column fact row, the painting full width below) · nav: one plain text row spread across the measure, scheme switch at the end · footer: wordmark over the fact row · signature: The School of Athens at full container width, uncropped, under the split wordmark */
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V4 · weakest: P, three reference rooms in one site; tied them with one cream page, one ink button, one gilt frame and one label card */
+/* Hallmark · waive 38ii · italic display word on the home and gallery heads, the user's own reference image · the homepage reference sets one italic word in a roman display line and the user asked for that reference to be followed closely (Floor 38i is reported, kept by the user's explicit request) */
+/* Hallmark · dropped the "GALLERY A · SUNLIT SALON" and "GALLERY B · DARK TIMBER CHAMBER" wing kickers and the hero dossier card's "PORTFOLIO I" seal · decoration, not portfolio content; every fact they framed is still shown */
+
+:root {
+  /* Light Mode (Warm Ivory, Marble Cream & Antique Gold Museum Palette) */
+  --bg-canvas-light: #fbefdc;
+  --bg-plinth-light: #f3e3c8;
+  --bg-elevated-light: #fdf6ea;
+  --bg-mat-light: #f6e8d1;
+
+  --ink-primary-light: #110d0a;
+  --ink-secondary-light: #574a40;
+
+  --accent-light: #6a2333;
+  --accent-contrast-light: #fbefdc;
+  --accent-subtle-light: #f1ddd3;
+
+  --gold-light: #6e4e1c;
+  --gold-rule-light: #b8893a;
+  --olive-light: #2e3a2a;
+  --olive-subtle-light: #e6e6db;
+
+  --border-strong-light: #110d0a;
+  --border-hairline-light: #d9c4a2;
+
+  /* Dark Mode (Nocturne Bronze Gallery) */
+  --bg-canvas-dark: #14100d;
+  --bg-plinth-dark: #211c17;
+  --bg-elevated-dark: #29231d;
+  --bg-mat-dark: #1c1814;
+
+  --ink-primary-dark: #f4efe4;
+  --ink-secondary-dark: #c2b7a8;
+
+  --accent-dark: #e3a3a8;
+  --accent-contrast-dark: #14100d;
+  --accent-subtle-dark: #31211e;
+
+  --gold-dark: #d3af71;
+  --gold-rule-dark: #b58e52;
+  --olive-dark: #9fb38f;
+  --olive-subtle-dark: #23291f;
+
+  --border-strong-dark: #cbbfae;
+  --border-hairline-dark: #3d362e;
+
+  /* Default fallback tokens */
+  --bg-canvas: var(--bg-canvas-light);
+  --bg-plinth: var(--bg-plinth-light);
+  --bg-elevated: var(--bg-elevated-light);
+  --bg-mat: var(--bg-mat-light);
+  --ink-primary: var(--ink-primary-light);
+  --ink-secondary: var(--ink-secondary-light);
+  --color-accent: var(--accent-light);
+  --color-accent-contrast: var(--accent-contrast-light);
+  --color-accent-subtle: var(--accent-subtle-light);
+  --color-gold: var(--gold-light);
+  --color-gold-rule: var(--gold-rule-light);
+  --color-olive: var(--olive-light);
+  --color-olive-subtle: var(--olive-subtle-light);
+  --border-strong: var(--border-strong-light);
+  --border-hairline: var(--border-hairline-light);
+
+  @media (prefers-color-scheme: dark) {
+    --bg-canvas: var(--bg-canvas-dark);
+    --bg-plinth: var(--bg-plinth-dark);
+    --bg-elevated: var(--bg-elevated-dark);
+    --bg-mat: var(--bg-mat-dark);
+    --ink-primary: var(--ink-primary-dark);
+    --ink-secondary: var(--ink-secondary-dark);
+    --color-accent: var(--accent-dark);
+    --color-accent-contrast: var(--accent-contrast-dark);
+    --color-accent-subtle: var(--accent-subtle-dark);
+    --color-gold: var(--gold-dark);
+    --color-gold-rule: var(--gold-rule-dark);
+    --color-olive: var(--olive-dark);
+    --color-olive-subtle: var(--olive-subtle-dark);
+    --border-strong: var(--border-strong-dark);
+    --border-hairline: var(--border-hairline-dark);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+    --bg-canvas: var(--bg-canvas-dark);
+    --bg-plinth: var(--bg-plinth-dark);
+    --bg-elevated: var(--bg-elevated-dark);
+    --bg-mat: var(--bg-mat-dark);
+    --ink-primary: var(--ink-primary-dark);
+    --ink-secondary: var(--ink-secondary-dark);
+    --color-accent: var(--accent-dark);
+    --color-accent-contrast: var(--accent-contrast-dark);
+    --color-accent-subtle: var(--accent-subtle-dark);
+    --color-gold: var(--gold-dark);
+    --color-gold-rule: var(--gold-rule-dark);
+    --color-olive: var(--olive-dark);
+    --color-olive-subtle: var(--olive-subtle-dark);
+    --border-strong: var(--border-strong-dark);
+    --border-hairline: var(--border-hairline-dark);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+    --bg-canvas: var(--bg-canvas-light);
+    --bg-plinth: var(--bg-plinth-light);
+    --bg-elevated: var(--bg-elevated-light);
+    --bg-mat: var(--bg-mat-light);
+    --ink-primary: var(--ink-primary-light);
+    --ink-secondary: var(--ink-secondary-light);
+    --color-accent: var(--accent-light);
+    --color-accent-contrast: var(--accent-contrast-light);
+    --color-accent-subtle: var(--accent-subtle-light);
+    --color-gold: var(--gold-light);
+    --color-gold-rule: var(--gold-rule-light);
+    --color-olive: var(--olive-light);
+    --color-olive-subtle: var(--olive-subtle-light);
+    --border-strong: var(--border-strong-light);
+    --border-hairline: var(--border-hairline-light);
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --bg-canvas: light-dark(var(--bg-canvas-light), var(--bg-canvas-dark));
+    --bg-plinth: light-dark(var(--bg-plinth-light), var(--bg-plinth-dark));
+    --bg-elevated: light-dark(var(--bg-elevated-light), var(--bg-elevated-dark));
+    --bg-mat: light-dark(var(--bg-mat-light), var(--bg-mat-dark));
+    --ink-primary: light-dark(var(--ink-primary-light), var(--ink-primary-dark));
+    --ink-secondary: light-dark(var(--ink-secondary-light), var(--ink-secondary-dark));
+    --color-accent: light-dark(var(--accent-light), var(--accent-dark));
+    --color-accent-contrast: light-dark(
+      var(--accent-contrast-light),
+      var(--accent-contrast-dark)
+    );
+    --color-accent-subtle: light-dark(
+      var(--accent-subtle-light),
+      var(--accent-subtle-dark)
+    );
+    --color-gold: light-dark(var(--gold-light), var(--gold-dark));
+    --color-gold-rule: light-dark(var(--gold-rule-light), var(--gold-rule-dark));
+    --color-olive: light-dark(var(--olive-light), var(--olive-dark));
+    --color-olive-subtle: light-dark(
+      var(--olive-subtle-light),
+      var(--olive-subtle-dark)
+    );
+    --border-strong: light-dark(var(--border-strong-light), var(--border-strong-dark));
+    --border-hairline: light-dark(
+      var(--border-hairline-light),
+      var(--border-hairline-dark)
+    );
+  }
+
+  color-scheme: light dark;
+  accent-color: var(--color-accent);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) var(--bg-plinth);
+
+  /* Typography tokens */
+  --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-quote: var(--font-display);
+  --font-sans: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-poster: 'Anton', Impact, 'Arial Narrow', sans-serif;
+  /* DM Serif Display ships one weight: never fake-bold it */
+  font-synthesis-weight: none;
+
+  /* Intentional radius hierarchy */
+  --radius-frame: 2px;
+  --radius-control: 4px;
+  --radius-card: 6px;
+
+  /* Fluid spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 0.875rem;
+  --space-md: 1.5rem;
+  --space-lg: clamp(1.5rem, 2.8vw, 2.75rem);
+  --space-xl: clamp(2.5rem, 5.5vw, 5rem);
+
+  /* Safe color interpolation space */
+  --in-oklab: ;
+
+  /* Elevation tokens */
+  --shadow-frame: 0 10px 28px rgba(35, 27, 22, 0.08), 0 2px 6px rgba(35, 27, 22, 0.05);
+  --shadow-frame-museum: 0 22px 48px rgba(22, 17, 13, 0.16), 0 6px 16px rgba(22, 17, 13, 0.08);
+  --shadow-popover: 0 14px 36px rgba(22, 19, 16, 0.16);
+}
+
+@supports (background: linear-gradient(in oklab, white, black)) {
+  :root {
+    --in-oklab: in oklab;
+  }
+}
+
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-plinth);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.75rem;
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  font-size: 100%;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 1099px) {
+  html {
+    scroll-padding-top: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  overflow-x: clip;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  background-color: var(--bg-plinth);
+  padding: 0.12rem 0.38rem;
+  border-radius: var(--radius-frame);
+  border: 1px solid var(--border-hairline);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.ui-icon {
+  flex-shrink: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 999;
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-control);
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.container {
+  width: min(100% - 2rem, 1240px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(100% - 3.5rem, 1240px);
+  }
+}
+
+/* Header & State-Aware Sticky Navigation */
+.sticky-sentinel {
+  position: relative;
+  height: 1px;
+  margin-bottom: -1px;
+  pointer-events: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background-color: color-mix(in oklab, var(--bg-canvas) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.site-header.is-stuck {
+  box-shadow: 0 6px 20px rgba(22, 19, 16, 0.09);
+}
+
+/* Scroll Progress Hairline */
+.exhibition-scroll-progress {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-gold-rule), var(--color-accent));
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    @keyframes museum-scroll-progress {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    .exhibition-scroll-progress {
+      animation: museum-scroll-progress auto linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exhibition-scroll-progress {
+    display: none;
+  }
+}
+
+/* Subtle Viewport Entrance Reveals */
+@media (prefers-reduced-motion: no-preference) {
+  .has-reveal-motion [data-reveal] {
+    opacity: 0;
+    translate: 0 14px;
+    transition: opacity 0.45s ease-out, translate 0.45s ease-out;
+  }
+
+  .has-reveal-motion [data-reveal].is-revealed {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Buttons & Controls */
+.btn-primary,
+.btn-secondary,
+.btn-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.58rem 1.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-secondary {
+  background-color: var(--bg-elevated);
+  color: var(--ink-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-secondary:hover,
+.btn-secondary.is-active-control {
+  background-color: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+}
+
+.btn-filter {
+  background-color: var(--bg-elevated);
+  color: var(--ink-primary);
+  border: 1px solid var(--border-strong);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.84rem;
+}
+
+.btn-filter:hover {
+  border-color: var(--color-gold-rule);
+  background-color: var(--bg-plinth);
+}
+
+.btn-filter.is-active {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border-color: var(--color-accent);
+}
+
+.btn-inline-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.25rem 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: none;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* Exhibition Sections & Classical Museum Identity Motif */
+.exhibition-section {
+  padding-block: var(--space-xl);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.section-concepts,
+.section-creative-expression,
+.section-final-reflection {
+  background-color: var(--bg-plinth);
+}
+
+.room-header-placard {
+  margin-bottom: var(--space-lg);
+  padding-bottom: 1.25rem;
+  border-bottom: 3px double var(--color-gold-rule);
+}
+
+.room-index-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.4rem;
+}
+
+.room-header-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .room-header-split {
+    grid-template-columns: 1.25fr 1fr;
+  }
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 1.35rem + 1.8vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.12;
+  text-wrap: balance;
+  margin: 0 0 0.75rem;
+}
+
+.section-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(0.96rem, 0.92rem + 0.2vw, 1.08rem);
+  line-height: 1.7;
+  color: var(--ink-secondary);
+  margin: 0;
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+
+.essay-prose {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink-primary);
+  margin: 0 0 1rem;
+  text-wrap: pretty;
+}
+
+/* Museum Framed Plates & Uncropped Mat Presentation */
+.museum-framed-plate {
+  padding: clamp(0.65rem, 1.4vw, 1rem);
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  outline: 1px solid var(--color-gold-rule);
+  outline-offset: -5px;
+  box-shadow: var(--shadow-frame);
+  transition: border-color 0.22s ease, outline-color 0.22s ease;
+}
+
+.museum-framed-plate:has(.plate-inspect-trigger:hover),
+.museum-framed-plate:has(.plate-inspect-trigger:focus-visible) {
+  border-color: var(--color-gold-rule);
+  outline-color: var(--color-accent);
+}
+
+.plate-inspect-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.plate-inspect-pill {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  background-color: var(--bg-elevated);
+  color: var(--ink-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  box-shadow: 0 4px 12px rgba(22, 19, 16, 0.16);
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+}
+
+@media (hover: hover) {
+  .plate-inspect-pill {
+    opacity: 0.88;
+  }
+  .plate-inspect-trigger:hover .plate-inspect-pill,
+  .plate-inspect-trigger:focus-visible .plate-inspect-pill {
+    opacity: 1;
+    background-color: var(--color-accent);
+    color: var(--color-accent-contrast);
+    border-color: var(--color-accent);
+  }
+}
+
+.artwork-frame-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--bg-mat);
+  border: 1px solid var(--border-hairline);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork-frame-container.is-matted {
+  padding: clamp(0.4rem, 1vw, 0.75rem);
+}
+
+.artwork-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  transition: opacity 0.25s ease;
+}
+
+.artwork-frame-container.is-matted .artwork-image {
+  object-fit: contain;
+}
+
+.artwork-frame-container.is-cropped .artwork-image {
+  object-fit: contain;
+}
+
+.artwork-image.is-loading {
+  opacity: 0;
+}
+
+.artwork-image.is-loaded {
+  opacity: 1;
+}
+
+.artwork-state-banner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.25rem;
+  text-align: center;
+  background-color: var(--bg-plinth);
+  color: var(--ink-primary);
+}
+
+.artwork-state-indicator {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--border-strong);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+}
+
+.artwork-fallback-notice {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  background-color: var(--bg-elevated);
+  border-top: 1px solid var(--border-strong);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.museum-placard-caption {
+  margin-top: 0.85rem;
+  padding: 0.9rem 1.05rem;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--color-gold-rule);
+  font-size: 0.88rem;
+}
+
+.placard-title-line {
+  color: var(--ink-primary);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.25;
+  margin-bottom: 0.2rem;
+}
+
+.placard-meta-line {
+  color: var(--ink-secondary);
+}
+
+.placard-description {
+  margin: 0.45rem 0 0;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--border-hairline);
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+}
+
+/* Blank Unanswered Field Slots */
+.blank-answer-slot {
+  min-height: 1.5rem;
+}
+
+.blank-statement-slot {
+  min-height: 3.5rem;
+}
+
+.blank-dd-slot {
+  min-height: 1.4em;
+}
+
+/* ROOM I: Hero & Student Profile */
+
+.essay-panel-kicker {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.35rem;
+}
+
+.essay-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 0 0 0.85rem;
+}
+
+/* Search & Filter Controls */
+.concept-filter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.search-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.search-input {
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  background-color: var(--bg-elevated);
+  color: var(--ink-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  width: 100%;
+}
+
+.filter-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Empty State Panel */
+.empty-state-panel {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.empty-state-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  margin: 0 0 0.5rem;
+}
+
+.empty-state-body {
+  color: var(--ink-secondary);
+  margin: 0 0 1.25rem;
+}
+
+/* ROOM II: Learning Activities as Museum Exhibitions */
+.concepts-corridor-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.concept-corridor-entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  padding-block: clamp(1.75rem, 3.2vw, 2.75rem);
+  border-bottom: 1px solid var(--color-gold-rule);
+  align-items: start;
+}
+
+.concept-corridor-entry:first-child {
+  padding-top: 0.5rem;
+}
+
+.concept-corridor-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+@media (min-width: 920px) {
+  .concept-corridor-entry {
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 2.5rem;
+  }
+  .concept-corridor-entry.is-reversed {
+    grid-template-columns: 0.88fr 1.12fr;
+  }
+  .concept-corridor-entry.is-reversed .concept-narrative-col {
+    order: 2;
+  }
+  .concept-corridor-entry.is-reversed .concept-visual-col {
+    order: 1;
+  }
+}
+
+.concept-visual-col {
+  margin: 0;
+}
+
+.concept-visual-col .artwork-frame-container {
+  max-height: clamp(280px, 68dvh, 580px);
+}
+
+.concept-meta-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.55rem;
+}
+
+.concept-catalog-num,
+.catalog-code-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  padding: 0.22rem 0.58rem;
+  border-radius: var(--radius-frame);
+}
+
+.concept-category-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-olive);
+  background-color: var(--color-olive-subtle);
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-frame);
+}
+
+.concept-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.05rem);
+  line-height: 1.18;
+  margin: 0 0 1rem;
+}
+
+.concept-analysis-block {
+  margin-bottom: 1.15rem;
+}
+
+.subblock-heading {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+  margin: 0 0 0.4rem;
+}
+
+/* ROOM III: Western & Asian Art Galleries */
+
+/* Native <dialog> Modals, Top-Layer Transitions & Lightbox Zoom */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background-color: rgba(16, 13, 10, 0);
+  transition: background-color 0.24s ease-out, display 0.24s ease-out, overlay 0.24s ease-out;
+  transition-behavior: allow-discrete;
+}
+
+dialog[open]::backdrop {
+  background-color: rgba(16, 13, 10, 0.78);
+  @starting-style {
+    background-color: rgba(16, 13, 10, 0);
+  }
+}
+
+.museum-modal-dialog {
+  width: min(94vw, 1140px);
+  max-height: 91dvh;
+  margin: auto;
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  transition-property: opacity, transform, display, overlay;
+  transition-duration: 0.24s;
+  transition-timing-function: ease-out;
+  transition-behavior: allow-discrete;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .museum-modal-dialog {
+    transform: scale(0.97);
+  }
+}
+
+.museum-modal-dialog[open] {
+  opacity: 1;
+  @starting-style {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transform: scale(1);
+    @starting-style {
+      transform: scale(0.97);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-modal-dialog,
+  dialog::backdrop {
+    transition-duration: 0.1s;
+  }
+}
+
+.lightbox-modal-dialog {
+  width: min(95vw, 1180px);
+}
+
+.modal-inner-sheet {
+  padding: clamp(1.1rem, 2.5vw, 2rem);
+}
+
+.modal-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.modal-catalog-breadcrumbs,
+.modal-top-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.modal-wing-tag {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+/* Zoomable Modal & Lightbox Stages */
+.lightbox-stage {
+  width: 100%;
+}
+
+.lightbox-stage.is-zoomed {
+  max-height: 68dvh;
+  overflow: auto;
+  border: 1px solid var(--border-hairline);
+}
+
+.lightbox-zoom-inner {
+  width: 100%;
+  transition: width 0.22s ease;
+}
+
+.lightbox-stage.is-zoomed .lightbox-zoom-inner {
+  width: 175%;
+}
+
+.lightbox-artwork-frame {
+  min-height: clamp(160px, 26dvh, 240px);
+  max-height: 70dvh;
+}
+
+.lightbox-stage.is-zoomed .lightbox-artwork-frame {
+  max-height: none;
+}
+
+.lightbox-stage.is-zoomed .artwork-image,
+.masterpiece-pavilion-band.is-expanded-view .artwork-image,
+.masterpiece-showcase-frame.is-expanded-view .artwork-image {
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox-figure {
+  margin: 0;
+}
+
+.lightbox-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  margin: 0 0 0.25rem;
+}
+
+.lightbox-year {
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+
+.studio-placard-metadata {
+  margin-top: 1.25rem;
+  background-color: var(--bg-plinth);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 1.15rem;
+}
+
+.ledger-heading {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.specimen-dl {
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.specimen-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border-hairline);
+  font-size: 0.88rem;
+}
+
+@media (min-width: 520px) {
+  .specimen-row {
+    grid-template-columns: 165px 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.specimen-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.specimen-row dt {
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+
+.specimen-row dd {
+  margin: 0;
+  min-width: 0;
+}
+
+/* ROOM IV: Creative Expression (Solo Studio Exhibition) */
+.studio-exhibition-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+@media (min-width: 920px) {
+  .studio-exhibition-grid {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}
+
+.studio-easel-empty {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--bg-mat);
+  border: 1px solid var(--border-hairline);
+}
+
+.statement-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.statement-main-heading {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.statement-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .statement-pillars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.statement-pillar-card {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 1.15rem;
+}
+
+/* ROOM V: Favorite Masterpiece Showcase */
+.masterpiece-showcase-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.masterpiece-plate-stage {
+  background-color: var(--bg-plinth);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: clamp(1rem, 2.5vw, 2rem);
+}
+
+.masterpiece-large-plate {
+  max-width: 860px;
+  margin-inline: auto;
+  transition: max-width 0.25s ease;
+}
+
+.masterpiece-pavilion-band.is-expanded-view .masterpiece-large-plate,
+.masterpiece-showcase-frame.is-expanded-view .masterpiece-large-plate {
+  max-width: 100%;
+}
+
+.masterpiece-stage-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-strong);
+}
+
+.masterpiece-stage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.masterpiece-work-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.15rem);
+  margin: 0 0 0.2rem;
+}
+
+.masterpiece-work-meta {
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 0.92rem;
+}
+
+.masterpiece-analysis-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .masterpiece-analysis-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.masterpiece-analysis-card {
+  background-color: var(--bg-plinth);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+}
+
+.appreciation-highlight-card {
+  background-color: var(--bg-elevated);
+  border: 2px solid var(--color-gold-rule);
+}
+
+.analysis-card-title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  margin: 0 0 0.75rem;
+}
+
+.masterpiece-formal-matrix {
+  background-color: var(--bg-plinth);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+}
+
+.matrix-header {
+  margin-bottom: 1rem;
+}
+
+.matrix-quad-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 680px) {
+  .matrix-quad-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.matrix-cell {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-control);
+  padding: 1.15rem;
+}
+
+/* ROOM VI: Final Reflection */
+
+.reflection-reading-prose {
+  max-width: 65ch;
+  font-size: 1.04rem;
+  line-height: 1.8;
+}
+
+.reflection-main-essay-card {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid var(--color-gold-rule);
+  border-radius: var(--radius-card);
+  padding: clamp(1.35rem, 2.8vw, 2.25rem);
+}
+
+.prompt-numeral {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-gold);
+}
+
+.prompt-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.22;
+  margin: 0 0 0.55rem;
+}
+
+.closing-monument-heading {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  margin: 0 0 0.85rem;
+}
+
+.closing-blockquote {
+  font-family: var(--font-quote);
+  font-size: clamp(1.15rem, 1.02rem + 0.45vw, 1.4rem);
+  font-style: italic;
+  line-height: 1.65;
+  max-width: 58ch;
+  margin: 0 auto;
+}
+
+/* References & Credits Section (Archival Bibliography) */
+.references-ledger-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem 2rem;
+}
+
+@media (min-width: 680px) {
+  .references-ledger-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1060px) {
+  .references-ledger-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.reference-citation-entry {
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-gold-rule);
+  display: flex;
+  flex-direction: column;
+}
+
+.reference-section-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.reference-license-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-olive);
+}
+
+.reference-work-title {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  margin: 0 0 0.25rem;
+}
+
+.reference-creator,
+.reference-repository {
+  font-size: 0.86rem;
+  color: var(--ink-secondary);
+  margin: 0 0 0.4rem;
+}
+
+.reference-link-row {
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+/* Floating Back to Top Pill */
+.back-to-top-pill {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: var(--bg-elevated);
+  color: var(--ink-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-popover);
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.back-to-top-pill:hover {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border-color: var(--color-accent);
+}
+
+/* Footer */
+.exhibition-footer {
+  background-color: var(--bg-plinth);
+  padding-block: 2.25rem 4.75rem;
+}
+
+/* ==========================================================================
+   ARCHITECTURAL DIGITAL MUSEUM UPGRADE — ROOM-BY-ROOM VISUAL DIRECTION
+   ========================================================================== */
+
+/* Elevated Double-Molded Museum Frame & Spotlight Interaction */
+.museum-framed-plate {
+  border: 2px solid var(--border-strong);
+  outline: 1px solid var(--color-gold-rule);
+  outline-offset: -6px;
+  box-shadow: var(--shadow-frame);
+  transition:
+    border-color 0.25s ease,
+    outline-color 0.25s ease,
+    box-shadow 0.25s ease,
+    translate 0.25s ease;
+}
+
+/* PART 1: Grand Museum Rotunda Entrance */
+
+/* Editorial Drop Cap for Opening Personal Essay */
+
+/* Entrance Choreography & Subtle Multi-Plane Scroll Parallax */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes museumEntranceSettle {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 14px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes heroPlinthDepth {
+      from {
+        transform: translate3d(0, 8px, 0);
+      }
+      to {
+        transform: translate3d(0, -6px, 0);
+      }
+    }
+  }
+}
+
+/* PART 2: Interactive Class Highlights Timeline Rail & Editorial Corridor */
+.concept-timeline-rail {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+  padding: 0.65rem 0 0.35rem;
+  border-top: 1px solid var(--border-hairline);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+
+.timeline-stop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.35rem 0.75rem;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  color: var(--ink-primary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  scroll-snap-align: start;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.timeline-stop-link:hover,
+.timeline-stop-link:focus-visible {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-subtle);
+}
+
+.timeline-stop-num {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.concept-narrative-col {
+  position: relative;
+}
+
+.concept-watermark-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 2.6rem + 2.5vw, 5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: color-mix(in oklab, var(--color-gold-rule) 26%, transparent);
+  user-select: none;
+  margin-bottom: 0.25rem;
+}
+
+/* PART 3: Contrasting Museum Wings (Salon Wall A vs Dark Timber Chamber B) */
+
+/* Ivory wall placards mounted beneath frames inside Dark Timber Chamber B */
+
+/* PART 4: Quiet Atelier Drafting Matte Styling */
+.studio-easel-empty {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 50% 42%,
+    color-mix(in oklab, var(--bg-elevated) 75%, var(--bg-mat)) 0%,
+    var(--bg-mat) 100%
+  );
+}
+
+.easel-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--color-gold-rule);
+  border-style: solid;
+  opacity: 0.65;
+}
+
+.easel-tl {
+  top: 1.15rem;
+  left: 1.15rem;
+  border-width: 2px 0 0 2px;
+}
+
+.easel-tr {
+  top: 1.15rem;
+  right: 1.15rem;
+  border-width: 2px 2px 0 0;
+}
+
+.easel-bl {
+  bottom: 1.15rem;
+  left: 1.15rem;
+  border-width: 0 0 2px 2px;
+}
+
+.easel-br {
+  bottom: 1.15rem;
+  right: 1.15rem;
+  border-width: 0 2px 2px 0;
+}
+
+.easel-crosshair {
+  width: 62%;
+  height: 62%;
+  border: 1px dashed color-mix(in oklab, var(--color-gold-rule) 38%, transparent);
+}
+
+/* PART 5: Full-Bleed Sanctuary Pavilion (Interactive Track Lighting vs Daylight) */
+.section-favorite-masterpiece {
+  padding-bottom: var(--space-xl);
+}
+
+.masterpiece-pavilion-band {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(1.75rem, 4vw, 3.25rem);
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pavilion-overhead-wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.masterpiece-pavilion-band.lighting-spotlight {
+  background-color: #19181d;
+  color: #f5f1e8;
+  border-color: #6b5839;
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .pavilion-overhead-wash {
+  background: radial-gradient(
+    ellipse 64% 58% at 50% 34%,
+    rgba(216, 183, 121, 0.2) 0%,
+    rgba(25, 24, 29, 0) 74%
+  );
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .pavilion-stage {
+  background-color: rgba(34, 33, 40, 0.72);
+  border-color: rgba(216, 183, 121, 0.45);
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .museum-framed-plate {
+  --bg-elevated: #fcf9f2;
+  --bg-mat: #efe7d8;
+  --border-strong: #9a7b4f;
+  --color-gold-rule: #d3af71;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.56);
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .pavilion-stage-bar {
+  border-top-color: rgba(216, 183, 121, 0.35);
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .masterpiece-work-title {
+  color: #f5f1e8;
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .masterpiece-work-meta {
+  color: #c9c2b8;
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .btn-pavilion-control {
+  background-color: #26252d;
+  color: #f5f1e8;
+  border-color: #8c7d66;
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .btn-pavilion-control:hover,
+.masterpiece-pavilion-band.lighting-spotlight .btn-pavilion-control.is-active-control {
+  background-color: #34313c;
+  border-color: #d8b779;
+}
+
+.masterpiece-pavilion-band.lighting-spotlight .btn-primary {
+  background-color: #d8b779;
+  color: #19181d;
+  border-color: #d8b779;
+  font-weight: 700;
+}
+
+.masterpiece-pavilion-band.lighting-daylight {
+  background-color: var(--bg-plinth);
+}
+
+.masterpiece-pavilion-band.lighting-daylight .pavilion-stage {
+  background-color: var(--bg-elevated);
+}
+
+.masterpiece-notes-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* PART 6 & Credits: Monograph & Exhibition Colophon Details */
+.reflection-monograph-folio {
+  position: relative;
+  border-top: 4px double var(--color-gold-rule);
+}
+
+.reference-index-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.reference-entry-num {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-gold);
+}
+
+/* Artwork Modal Entrance & Gallery Transition Polish */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes modalArtworkFadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 8px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .modal-artwork-transition {
+    animation: modalArtworkFadeIn 0.26s ease-out both;
+  }
+}
+
+/* View Transitions Respecting Natural Proportions & Reduced Motion */
+@supports (view-transition-name: none) {
+  ::view-transition-group(*) {
+    animation-duration: 0.28s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    height: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   2D EDITORIAL ART MUSEUM THRESHOLDS, STICKY STUDY & GALLERY INTERACTION
+   ========================================================================== */
+
+.museum-editorial-app {
+  min-block-size: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+}
+
+.museum-editorial-app main {
+  flex: 1 0 auto;
+}
+
+.exhibition-section {
+  position: relative;
+}
+
+.exhibition-section:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Architectural bronze threshold ornament between museum rooms */
+.exhibition-section + .exhibition-section::before {
+  content: '';
+  position: absolute;
+  top: -0.42rem;
+  left: 50%;
+  width: 0.72rem;
+  height: 0.72rem;
+  transform: translateX(-50%) rotate(45deg);
+  background-color: var(--bg-elevated);
+  border: 1.5px solid var(--color-gold-rule);
+}
+
+/* Keep concept plate beside long explanations on wide reading screens */
+@media (min-width: 920px) {
+  .concept-visual-col {
+    position: sticky;
+    top: 8.5rem;
+  }
+}
+
+/* Gentle uncropped hover depth on gallery & study plates */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .museum-framed-plate:has(.plate-inspect-trigger:hover) {
+    translate: 0 -3px;
+    box-shadow: var(--shadow-frame-museum);
+  }
+}
+

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Archival plate fallback">
+  <rect width="800" height="600" fill="#EDE5D5" />
+  <rect x="24" y="24" width="752" height="552" fill="#F7F3EA" stroke="#7A6D5E" stroke-width="1.5" />
+  <rect x="34" y="34" width="732" height="532" fill="none" stroke="#9A7B4F" stroke-width="1" />
+  <text x="400" y="285" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#231B16">
+    Archival Plate Unavailable
+  </text>
+  <text x="400" y="320" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5A4E45">
+    The requested artwork image could not be displayed at this moment.
+  </text>
+</svg>
